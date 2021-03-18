@@ -129,9 +129,13 @@ a:hover {
 }
 textarea {
 	background-color: var(--item-background-color);
+	display: block;
+	margin: 15px 0;
+	width: 100%;
 }
 button {
 	background-color: var(--item-background-color);
+	color: var(--text-color);
 }
 button:hover {
 	background-color: var(--item-hover-background-color);
