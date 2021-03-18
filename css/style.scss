@@ -1,0 +1,145 @@
+---
+---
+:root {
+	--text-color: black;
+	--link-color: #333;
+	--link-hover-color: #555;
+	--background-color: white;
+	--section-background-color: white;
+	--item-background-color: white;
+	--item-hover-background-color: white;
+}
+@media (prefers-color-scheme: dark) {	
+	:root {
+		--text-color: white;
+		--link-color: #CCC;
+		--link-hover-color: #EEE;
+		--background-color: black;
+		--section-background-color: #181818;
+		--item-background-color: #333;
+		--item-hover-background-color: #555;
+	}
+}
+body {
+	color: var(--text-color);
+	background-color: var(--background-color);
+	display: flex;
+	flex-direction: column;
+	font-family: serif;
+	margin: 0;
+	min-height: 100vh;
+}
+[lang="en"] [lang]:not([lang="en"]) {
+	font-style: italic;
+}
+header {
+	padding: 10px;
+	>* {
+		align-items: flex-end;
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	a {
+		text-decoration: none;
+	}
+	img {
+		filter: drop-shadow(1px 1px 3px #000000c0);
+	}
+	h1 {
+		color: var(--text-color);
+		display: inline-block;
+		margin: 0;
+		padding: 20px;
+		vertical-align: top;
+	}
+}
+h1 {
+	font-size: 60px;
+	line-height: 60px;
+}
+header, footer {
+	text-align: center;
+}
+nav {
+	display: flex;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 15px auto 5px;
+	max-width: 720px;
+	text-align: center;
+	width: 100%;
+
+	ul {
+		display: inline-flex;
+		flex-wrap: wrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		li {
+			flex: 1 0 auto;
+			margin: 10px 20px;
+		}
+	}
+
+	a:not(:hover) {
+		text-decoration: none;
+	}
+}
+main {
+	flex-grow: 1;
+	padding-bottom: 2vw;
+}
+section, article, details {
+	background-color: var(--section-background-color);
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	color: var(--text-color);
+	max-width: 700px;
+	margin: 15px auto;
+	padding: 10px;
+	img {
+		max-width: 700px;
+	}
+}
+h2, h2 a, h3, h4, h5, h6, summary {
+	font-weight: bold;
+	margin: 0 0 15px 0;
+}
+h2, summary {
+	font-size: 24px;
+}
+summary {
+	cursor: pointer;
+}
+details:not([open])>summary {
+	margin: 0;
+}
+p:first-child {
+	margin-top: 0;
+}
+p:last-child {
+	margin-bottom: 0;
+}
+a {
+	color: var(--link-color);
+}
+a:hover {
+	color: var(--link-hover-color);
+}
+textarea {
+	background-color: var(--item-background-color);
+}
+button {
+	background-color: var(--item-background-color);
+}
+button:hover {
+	background-color: var(--item-hover-background-color);
+}
+li:not(:last-child) {
+	margin-bottom: 8px;
+}
+footer {
+	color: var(--section-background-color);
+	padding: 20px;
+}
