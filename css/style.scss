@@ -97,10 +97,12 @@ main {
 	flex-grow: 1;
 	padding-bottom: 2vw;
 }
-section, article, details {
+section, article, details, #envelope {
 	background-color: var(--section-background-color);
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 	color: var(--text-color);
+}
+section, article, details {
 	max-width: 700px;
 	margin: 15px auto;
 	padding: 10px;
