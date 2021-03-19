@@ -25,9 +25,11 @@ body {
 	background-color: var(--background-color);
 	display: flex;
 	flex-direction: column;
-	font-family: serif;
 	margin: 0;
 	min-height: 100vh;
+}
+body, textarea {
+	font-family: "Times New Roman", Times, "FreeSerif", "Liberation Serif", serif;
 }
 [lang="en"] [lang]:not([lang="en"]) {
 	font-style: italic;
@@ -49,6 +51,7 @@ header {
 	h1 {
 		color: var(--text-color);
 		display: inline-block;
+		letter-spacing: 3px;
 		margin: 0;
 		padding: 20px;
 		vertical-align: top;
@@ -130,8 +133,11 @@ a:hover {
 textarea {
 	background-color: var(--item-background-color);
 	display: block;
-	margin: 15px 0;
-	width: 100%;
+	margin: 10px;
+	width: 350px;
+}
+#addresses {
+	margin: 20px auto;
 }
 button {
 	background-color: var(--item-background-color);
