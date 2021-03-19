@@ -4,7 +4,7 @@ let envelope = document.getElementById("envelope");
 let returnAddressBox = document.getElementById("return-address");
 let addressesBox = document.getElementById("addresses");
 
-document.getElementById("print").onclick = () => {
+document.getElementById("print-button").onclick = () => {
 	
 };
 
