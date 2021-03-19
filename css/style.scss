@@ -144,6 +144,8 @@ a:hover {
 }
 textarea {
 	background-color: var(--item-background-color);
+	border: none;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 	display: block;
 	margin: 10px;
 	width: 350px;
