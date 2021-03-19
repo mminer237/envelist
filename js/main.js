@@ -4,7 +4,7 @@ let envelope = document.getElementById("envelope");
 let returnAddressBox = document.getElementById("return-address");
 let addressesBox = document.getElementById("addresses");
 
-document.getElementById("start").onclick = () => {
+document.getElementById("print").onclick = () => {
 	
 };
 
@@ -17,6 +17,7 @@ let sizes = {
 	"A10": [9.5, 4.125]
 };
 function updateEnvelopeSize(size = "A10") {
-	envelope.width = sizes[size][0] * 96;
-	envelope.height = sizes[size][1] * 96;
+	envelope.style.width = sizes[size][0] + "in";
+	envelope.style.height = sizes[size][1] + "in";
 }
+updateEnvelopeSize();
