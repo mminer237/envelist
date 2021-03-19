@@ -20,6 +20,9 @@
 		--item-hover-background-color: #555;
 	}
 }
+* {
+	position: relative;
+}
 body {
 	color: var(--text-color);
 	background-color: var(--background-color);
@@ -101,6 +104,9 @@ section, article, details {
 	max-width: 700px;
 	margin: 15px auto;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	img {
 		max-width: 700px;
 	}
@@ -129,6 +135,10 @@ a {
 }
 a:hover {
 	color: var(--link-hover-color);
+}
+#envelope {
+	align-self: center;
+	margin: 10px;
 }
 textarea {
 	background-color: var(--item-background-color);
