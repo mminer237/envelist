@@ -159,6 +159,7 @@ textarea {
 	padding: 5px;
 	position: absolute;
 	width: 300px;
+	z-index: 2;
 }
 #addresses {
 	margin: auto;
@@ -176,6 +177,6 @@ li:not(:last-child) {
 	margin-bottom: 8px;
 }
 footer {
-	color: var(--section-background-color);
+	background-color: var(--section-background-color);
 	padding: 20px;
 }
