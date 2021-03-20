@@ -5,7 +5,7 @@ let returnAddressBox = document.getElementById("return-address");
 let addressesBox = document.getElementById("addresses");
 
 document.getElementById("print-button").onclick = () => {
-	
+	window.print();
 };
 
 function updateFont(font) {
