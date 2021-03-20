@@ -4,10 +4,12 @@
 	--text-color: black;
 	--link-color: #333;
 	--link-hover-color: #555;
-	--background-color: white;
-	--section-background-color: white;
+	--background-color: #E0E0E0;
+	--section-background-color: #EAEAEA;
+	--envelope-background-color: white;
 	--item-background-color: white;
 	--item-hover-background-color: white;
+	--box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 }
 @media (prefers-color-scheme: dark) {	
 	:root {
@@ -15,9 +17,11 @@
 		--link-color: #CCC;
 		--link-hover-color: #EEE;
 		--background-color: black;
-		--section-background-color: #181818;
-		--item-background-color: #333;
+		--section-background-color: #2C2C2C;
+		--envelope-background-color: #3C3C3C;
+		--item-background-color: #444;
 		--item-hover-background-color: #555;
+		--box-shadow: 0 3px 6px 0 rgba(0,0,0,0.35);
 	}
 }
 * {
@@ -99,7 +103,7 @@ main {
 }
 section, article, details, #envelope {
 	background-color: var(--section-background-color);
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	box-shadow: var(--box-shadow);
 	color: var(--text-color);
 }
 section, article, details {
@@ -140,6 +144,7 @@ a:hover {
 }
 #envelope {
 	align-self: center;
+	background-color: var(--envelope-background-color);
 	margin: 10px;
 	width: 9.5in;
 	height: 4.125in;
@@ -148,6 +153,7 @@ textarea {
 	background-color: var(--item-background-color);
 	border: none;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	color: var(--text-color);
 	display: block;
 	margin: 10px;
 	width: 350px;
