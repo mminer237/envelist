@@ -156,10 +156,14 @@ textarea {
 	color: var(--text-color);
 	display: block;
 	margin: 10px;
-	width: 350px;
+	padding: 5px;
+	position: absolute;
+	width: 300px;
 }
 #addresses {
-	margin: 20px auto;
+	margin: auto;
+	left: calc(42% - 5px);
+	top: calc(53% - 5px);
 }
 button {
 	background-color: var(--item-background-color);

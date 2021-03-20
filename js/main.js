@@ -15,9 +15,10 @@ function updateFont(font) {
 
 let sizes = {
 	"A10": [9.5, 4.125]
+	// "A10": [10, 4.5]
 };
 function updateEnvelopeSize(size = "A10") {
-	envelope.style.width = sizes[size][0] + "in";
-	envelope.style.height = sizes[size][1] + "in";
+	envelope.style.width = sizes[size][0] * 101 + "px";
+	envelope.style.height = sizes[size][1] * 101 + "px";
 }
 updateEnvelopeSize();
