@@ -25,9 +25,11 @@ document.onkeydown = e => {
 	}
 };
 
+let savedFont = "Times";
 function updateFont(font) {
 	returnAddressBox.style.fontFamily = font;
 	addressesBox.style.fontFamily = font;
+	savedFont = font;
 }
 
 const sizes = {
@@ -52,6 +54,8 @@ function makePDF(size, returnAddress, addresses) {
 		format: size
 	};
 	const doc = new jsPDF(pageOptions);
+	doc.addFont(savedFont);
+	doc.setFont(savedFont);
 	const textOptions = {
 		baseline: 'top'
 	};
