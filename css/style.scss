@@ -24,26 +24,6 @@
 		--box-shadow: 0 3px 6px 0 rgba(0,0,0,0.35);
 	}
 }
-@media print {
-	* {
-		box-shadow: none !important;
-		border: none !important;
-		visibility: hidden;
-	}
-	#envelope {
-		visibility: visible;
-		position: fixed;
-		left: 0;
-		top: 0;
-	}
-	#envelope * {
-		visibility: visible;
-	}
-	@page {
-		size: 9.5in 4.125in;
-		margin: 0;
-	}
-}
 * {
 	position: relative;
 }
