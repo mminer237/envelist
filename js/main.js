@@ -44,7 +44,7 @@ function updateEnvelopeSize(size = "A10") {
 updateEnvelopeSize();
 
 function getAddresses() {
-	return addressesBox.value.split("\n\n");
+	return addressesBox.value.split(/\n\s*\n/);
 }
 
 function makePDF(size, returnAddress, addresses) {
