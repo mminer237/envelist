@@ -56,6 +56,7 @@ function makePDF(size, returnAddress, addresses) {
 	const doc = new jsPDF(pageOptions);
 	doc.addFont(savedFont);
 	doc.setFont(savedFont);
+	doc.setFontSize(12);
 	const textOptions = {
 		baseline: 'top'
 	};
