@@ -27,6 +27,9 @@
 		--item-hover-background-color: #555;
 		--box-shadow: 0 3px 6px 0 rgba(0,0,0,0.35);
 	}
+	#stamp {
+		filter: brightness(63%) saturate(92%);
+	}
 }
 * {
 	position: relative;
@@ -164,6 +167,13 @@ textarea {
 	position: absolute;
 	width: 300px;
 	z-index: 2;
+}
+#stamp {
+	float: right;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	transform: rotate(2deg);
 }
 #addresses {
 	margin: auto;
