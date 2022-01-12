@@ -23,6 +23,12 @@
 		{% if site.themeColor %}
 		<meta name="theme-color" content="{{ site.themeColor }}" />
 		{% endif %}
+		{% if site.lightThemeColor %}
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ site.lightThemeColor }}" />
+		{% endif %}
+		{% if site.darkThemeColor %}
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{ site.darkThemeColor }}" />
+		{% endif %}
 		<title>{% if page.url == "/" %}{{ site.title | xml_escape }} – {{ site.tagline | xml_escape }}{% else %}{{ page.title | xml_escape }} – {{ site.title | xml_escape }}{% endif %}</title>
 		{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">

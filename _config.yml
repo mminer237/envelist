@@ -7,12 +7,11 @@ author:
 url: https://envelist.net
 # tagManagerCode: GTM-TK37G57
 # googleAdClient: ca-pub-5576042369154755
-# themeColor: "#222222"
+lightThemeColor: "#F17BA7"
+darkThemeColor: "#954C68"
 
-# googleFonts:
-#   - Lato:400,400i,900
-#   - Old+Standard+TT:400,400i,700
-#   - IBM+Plex+Serif:500,500i
+googleFonts:
+  - Roboto:500
 
 defaults:
   -
