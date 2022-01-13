@@ -155,6 +155,7 @@ a:hover {
 	margin: 10px;
 	width: 9.5in;
 	height: 4.125in;
+	max-width: 98vw;
 }
 textarea {
 	background-color: var(--item-background-color);
@@ -163,12 +164,23 @@ textarea {
 	color: var(--text-color);
 	display: block;
 	margin: 10px;
+	max-width: 88vw;
 	padding: 5px;
 	position: absolute;
 	width: 300px;
 	z-index: 2;
 }
+#return-address {
+	@media (max-width: 429px) {
+		margin: 10px auto;
+		left: 0;
+		right: 0;
+	}
+}
 #stamp {
+	@media (max-width: 429px) {
+		display: none;
+	}
 	float: right;
 	width: 100px;
 	height: 100px;
@@ -178,7 +190,17 @@ textarea {
 #addresses {
 	margin: auto;
 	left: calc(42% - 5px);
-	top: calc(55% - 5px);
+	top: unquote("min(calc(55% - 5px), (100vw - 330px) / 2)");
+}
+@media (max-width: 549px) {
+	textarea {
+		resize: none;
+	}
+	#addresses {
+		left: 0;
+		right: 0;
+		top: 110px;
+	}
 }
 button {
 	background-color: var(--accent-color);
@@ -193,6 +215,7 @@ button {
 	letter-spacing: 1.25px;
 	padding: 10px 22px;
 	text-transform: uppercase;
+	z-index: 10;
 }
 button:hover {
 	background-color: var(--hover-accent-color);
