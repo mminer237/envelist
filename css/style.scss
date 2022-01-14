@@ -199,6 +199,7 @@ textarea {
 	#addresses {
 		left: 0;
 		right: 0;
+		transition: left 1s ease;
 		top: 110px;
 	}
 }
