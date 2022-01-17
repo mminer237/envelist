@@ -49,9 +49,9 @@ body, textarea {
 	font-style: italic;
 }
 header {
-	padding: 10px;
+	padding-top: 10px;
 	>* {
-		align-items: flex-end;
+		align-items: center;
 		display: inline-flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -67,8 +67,7 @@ header {
 		display: inline-block;
 		letter-spacing: 3px;
 		margin: 0;
-		padding: 20px;
-		vertical-align: top;
+		padding: 17px;
 	}
 }
 h1 {
