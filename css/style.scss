@@ -162,6 +162,7 @@ input[type="number"] {
 	width: 9.5in;
 	height: 4.125in;
 	max-width: 98vw;
+	transition: all 0.3s ease;
 }
 textarea {
 	background-color: var(--item-background-color);
