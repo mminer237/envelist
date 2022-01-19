@@ -145,6 +145,16 @@ a {
 a:hover {
 	color: var(--link-hover-color);
 }
+#preset {
+	width: 100px;
+	margin-right: 20px;
+}
+#preset~div {
+	display: inline-block;
+}
+input[type="number"] {
+	width: 60px;
+}
 #envelope {
 	align-self: center;
 	background-color: var(--envelope-background-color);
