@@ -30,3 +30,5 @@ permalink: /:name
 sass:
   style: compressed
 
+plugins:
+  - jekyll-sitemap
