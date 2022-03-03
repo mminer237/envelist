@@ -57,6 +57,8 @@ const sizes = {
 presetSelect.innerHTML = Object.keys(sizes).map((size, _) => `<option value="${size}">${size}</option>`).join("\n\t\t\t") + "\n\t\t<option value=\"custom\">Custom</option>";
 /* Reselect #10 as the default */
 presetSelect.value = "#10";
+widthInput.value = sizes[presetSelect.value][0];
+heightInput.value = sizes[presetSelect.value][1];
 
 /* Update values on preset selection */
 presetSelect.onchange = presetChanged;
