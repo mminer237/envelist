@@ -2,6 +2,7 @@
 layout: default
 scripts:
   - https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js
+  - https://html2canvas.hertzen.com/dist/html2canvas.js
   - /js/main.js
 ---
 
@@ -19,7 +20,7 @@ scripts:
 <section>
 	<h2>Envelope Size</h2>
 	<form>
-		<select id="preset">
+		<select id="preset-size">
 			<option value="#10">#10</option>
 		</select>
 		<div>
@@ -27,6 +28,19 @@ scripts:
 			×
 			<input type="number" id="width"  min="3" max="36" step="0.125" value="9.5"> in.
 		</div>
+	</form>
+</section>
+<section>
+	<h2>Font</h2>
+	<form>
+		<label for="preset-font-family">Font Family</label>
+		<select id="preset-font-family">
+			<option value="Times">Times</option>
+		</select>
+		<label for="custom-font">Custom Font</label>
+		<input type="text" id="custom-font">
+		<div id="font-detection-warning" class="warning" style="display: none;">Your browser does not support font detection. We will download fallback fonts just in case.</div>
+		<div id="pdf-resolution-warning" class="warning" style="display: none;">High-resolution custom font rendering does not work right in Chrome. It will fallback to a low-resolution image, but if you want a font not native to PDFs, you should use <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.</div>
 	</form>
 </section>
 <section>

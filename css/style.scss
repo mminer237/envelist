@@ -9,6 +9,7 @@
 	--envelope-background-color: white;
 	--accent-color: #F17BA7;
 	--hover-accent-color: hsl(338, 81%, 81%);
+	--warning-color: hsl(51, 81%, 71%);
 	--item-background-color: white;
 	--item-hover-background-color: white;
 	--box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
@@ -23,6 +24,7 @@
 		--envelope-background-color: #3C3C3C;
 		--accent-color: #954C68;
 		--hover-accent-color: hsl(337, 32%, 50%);
+		--warning-color: hsl(52, 38%, 27%);
 		--item-background-color: #444;
 		--item-hover-background-color: #555;
 		--box-shadow: 0 3px 6px 0 rgba(0,0,0,0.35);
@@ -126,6 +128,14 @@ section, article, details {
 		max-width: 700px;
 	}
 }
+.warning {
+	background-color: var(--warning-color);
+	box-shadow: var(--box-shadow);
+	padding: 5px;
+}
+.warning::before {
+	content: "⚠";
+}
 h2, h2 a, h3, h4, h5, h6, summary {
 	font-weight: bold;
 	margin: 0 0 15px 0;
@@ -161,6 +171,12 @@ a:hover {
 input[type="number"] {
 	width: 60px;
 }
+form > * {
+	display: block;
+}
+label:not(:first-child) {
+	margin-top: 10px;
+}
 #envelope {
 	align-self: center;
 	background-color: var(--envelope-background-color);
@@ -176,6 +192,7 @@ textarea {
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 	color: var(--text-color);
 	display: block;
+	font-size: 12pt;
 	margin: 10px;
 	max-width: 88vw;
 	padding: 5px;
