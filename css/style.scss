@@ -32,6 +32,12 @@
 	#stamp {
 		filter: brightness(63%) saturate(92%);
 	}
+	footer img {
+		filter: drop-shadow(0.7px 0.7px white);
+	}
+	footer img:hover {
+		filter: brightness(1.2) drop-shadow(0.7px 0.7px #fff) drop-shadow(0.7px 0.7px 2px #fff4) !important;
+	}
 }
 @media (prefers-reduced-motion) {
 	* {
@@ -259,6 +265,14 @@ li:not(:last-child) {
 	margin-bottom: 8px;
 }
 footer {
+	align-items: center;
 	background-color: var(--section-background-color);
-	padding: 20px;
+	display: flex;
+	justify-content: center;
+	> * {
+		padding: 20px;
+	}
+	img:hover {
+		filter: brightness(2.4);
+	}
 }
