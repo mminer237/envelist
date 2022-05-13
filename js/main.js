@@ -71,6 +71,8 @@ const presetFonts = {
 	"Times": new FontFamily(["Times New Roman", "Times"], ["Tinos"], ["Liberation Serif", "FreeSerif", "serif"]),
 	"Verdana": new FontFamily(["Verdana", "DejaVu Sans", "Bitstream Vera Sans"], [], ["Tahoma", "Geneva", "Arial", "sans-serif"]),
 };
+if (window.chrome)
+	delete presetFonts.Arial; // Helvetica is too close and renders correctly
 const pdfFonts = ["Courier", "Helvetica", "Times"];
 
 /* Populate the preset fonts */
