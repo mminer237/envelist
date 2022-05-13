@@ -42,7 +42,7 @@ scripts:
 		<div id="pdf-resolution-warning" class="warning" style="display: none;">High-resolution custom font rendering does not work right in Chrome. It will fallback to a low-resolution image, but if you want a font not native to PDFs, you should use <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.</div>
 	</form>
 </section>
-<section>
+<section id="evelope-section">
 	<h2>Addresses</h2>
 	<div id="envelope">
 		<textarea id="return-address" rows="4" placeholder="Return Address"></textarea>
@@ -50,4 +50,11 @@ scripts:
 		<textarea id="addresses" rows="15" placeholder="Recipient Addresses"></textarea>
 	</div>
 	<button id="print-button">Print</button>
+</section>
+<section>
+	<h2>Help</h2>
+	<ul>
+		<li><a href="{% link _pages/why-is-my-paper-size-wrong.html %}">Why Is My Paper Size Wrong?</a></li>
+	</ul>
+	<p>If you have any other issues or questions, please <a href="mailto:mminer@gmail.com">email me</a>, and I'll try to help however I can.</p>
 </section>
