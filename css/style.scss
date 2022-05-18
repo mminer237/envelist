@@ -132,6 +132,9 @@ section, article, details {
 	img, .side-by-side {
 		max-width: 700px;
 	}
+	img {
+		image-rendering: -webkit-optimize-contrast;
+	}
 }
 .warning {
 	background-color: var(--warning-color);
