@@ -30,7 +30,10 @@
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{ site.darkThemeColor }}" />
 		{% endif %}
 		<title>{% if page.url == "/" %}{{ site.title | xml_escape }} – {{ site.tagline | xml_escape }}{% else %}{{ page.title | xml_escape }} – {{ site.title | xml_escape }}{% endif %}</title>
-		{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+		<meta property="og:title" content="{% if page.url == '/' %}{{ site.title | xml_escape }} – {{ site.tagline | xml_escape }}{% else %}{{ page.title | xml_escape }} – {{ site.title | xml_escape }}{% endif %}">
+		{% if page.description %}<meta name="description" property="og:description" content="{{ page.description }}">{% endif %}
+		<meta property="og:image" content="https://envelist.net/assets/open-graph-preview.png">
+		<meta property="og:image:type" content="image/png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/style.css">
 		{% for font in site.googleFonts %}
