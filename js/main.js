@@ -169,7 +169,7 @@ updateEnvelopeSize();
  * @returns {string[]} The list of recipient addresses
  */
 function getAddresses() {
-	return addressesBox.value.split(/\n\s*\n/);
+	return addressesBox.value.split(/(?:\n\s*\n|(?<=\b\w?\d\w ?\d\w\d(?:-\d{4})?)\n)/).filter(x => x);
 }
 
 /**
