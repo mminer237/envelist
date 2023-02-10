@@ -46,7 +46,11 @@ scripts:
 <section id="evelope-section">
 	<h2>Addresses</h2>
 	<div id="envelope">
-		<textarea id="return-address" rows="4" placeholder="Return Address"></textarea>
+		<div id="return-address">
+			<textarea rows="4" placeholder="Return Address"></textarea>
+			<label for="add-return-image" class="button">🖼️</label>
+			<input id="add-return-image" type="file" accept="image/*">
+		</div>
 		<img id="stamp" src="/assets/stamp.svg" alt="Stamp" />
 		<textarea id="addresses" rows="15" placeholder="Recipient Addresses"></textarea>
 	</div>

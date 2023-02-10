@@ -8,15 +8,15 @@ const heightInput = document.getElementById("height");
 const fontFamilySelect = document.getElementById("preset-font-family");
 const customFontInput = document.getElementById("custom-font");
 const envelope = document.getElementById("envelope");
-const returnAddressBox = document.getElementById("return-address");
+const returnAddressBox = document.querySelector("#return-address > textarea");
+const addReturnImageButton = document.getElementById("add-return-image");
 const addressesBox = document.getElementById("addresses");
 
-function printEnvelopes() {
-	const addresses = getAddresses();
+async function printEnvelopes() {
 	makePDF(
 		updateEnvelopeSize(),
-		returnAddressBox.value,
-		addresses
+		await getReturnImage() || returnAddressBox.value,
+		getAddresses()
 	).then(printPDF);
 }
 
@@ -166,6 +166,24 @@ function updateEnvelopeSize() {
 updateEnvelopeSize();
 
 /**
+ * Get return image as a data URL
+ * @returns {string} Data URL of uploaded return image
+ */
+async function getReturnImage() {
+	const file = addReturnImageButton.files[0];
+	if (file) {
+		const promise = new Promise (resolve => {
+			const reader = new FileReader();
+			reader.onloadend = () => resolve(reader.result);
+			reader.readAsDataURL(file);
+		});
+		return await promise;
+	}
+	else
+		return "";
+}
+
+/**
  * Read and parse the recipient addresses
  * @returns {string[]} The list of recipient addresses
  */
@@ -176,7 +194,7 @@ function getAddresses() {
 /**
  * Generate a PDF of the envelope to print
  * @param {EnvelopeSize} size The size of the envelope in inches
- * @param {string} returnAddress
+ * @param {string} returnAddress The return address, either as a data URL or normal text
  * @param {string[]} addresses The list of recipient addresses
  * @returns {jsPDF} Resulting PDF
  */
@@ -195,7 +213,10 @@ async function makePDF(size, returnAddress, addresses) {
 		const textOptions = {
 			baseline: 'top'
 		};
-		doc.text(returnAddress, .1, .1, textOptions);
+		if (returnAddress.startsWith('data:'))
+			doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .1);
+		else
+			doc.text(returnAddress, .1, .1, textOptions);
 		doc.text(addresses[0], size[0] * .42, size[1] * .55);
 		for (let i = 1; i < addresses.length; i++) {
 			doc.addPage(pageOptions.format, pageOptions.orientation);
@@ -213,7 +234,10 @@ async function makePDF(size, returnAddress, addresses) {
 			const context = canvas.getContext("2d");
 			context.font = Math.round(12 * imagePixelsPerInch / 72) + "pt " + savedFont;
 			context.textBaseline = "top";
-			context.fillText(returnAddress, 6, 6);
+			if (returnAddress.startsWith('data:'))
+				doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .1);
+			else
+				context.fillText(returnAddress, 6, 6);
 			context.fillText(address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55);
 			return canvas.toDataURL("image/png");
 		});
