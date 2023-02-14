@@ -214,9 +214,9 @@ async function makePDF(size, returnAddress, addresses) {
 			baseline: 'top'
 		};
 		if (returnAddress.startsWith('data:'))
-			doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .1);
+			doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .2, .18);
 		else
-			doc.text(returnAddress, .1, .1, textOptions);
+			doc.text(returnAddress, .2, .18, textOptions);
 		doc.text(addresses[0], size[0] * .42, size[1] * .55);
 		for (let i = 1; i < addresses.length; i++) {
 			doc.addPage(pageOptions.format, pageOptions.orientation);
@@ -235,9 +235,9 @@ async function makePDF(size, returnAddress, addresses) {
 			context.font = Math.round(12 * imagePixelsPerInch / 72) + "pt " + savedFont;
 			context.textBaseline = "top";
 			if (returnAddress.startsWith('data:'))
-				doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .1);
+				doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .18);
 			else
-				context.fillText(returnAddress, 6, 6);
+				context.fillText(returnAddress, 14, 13);
 			context.fillText(address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55);
 			return canvas.toDataURL("image/png");
 		});
