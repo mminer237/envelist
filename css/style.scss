@@ -9,6 +9,8 @@
 	--envelope-background-color: white;
 	--accent-color: #F17BA7;
 	--hover-accent-color: hsl(338, 81%, 81%);
+	--red-color: hsl(357, 81%, 55%);
+	--hover-red-color: hsl(357, 81%, 65%);
 	--warning-color: hsl(51, 81%, 71%);
 	--item-background-color: white;
 	--item-hover-background-color: white;
@@ -222,8 +224,9 @@ textarea {
 	> textarea {
 		position: relative;
 	}
-	label {
+	label, button {
 		font-size: 125%;
+		line-height: 125%;
 		margin: 0;
 		padding: 7px 13px;
 		position: absolute;
@@ -233,6 +236,23 @@ textarea {
 	input[type="file"] {
 		display: none;
 	}
+	input[type="file"]:valid ~ label {
+		right: 70px;
+	}
+}
+#remove-return-image {
+	background-color: var(--red-color);
+	color: white;
+}
+#remove-return-image:hover {
+	background-color: var(--hover-red-color);
+}
+#remove-return-image:active {
+	background-color: var(--red-color);
+	box-shadow: none;
+}
+input[type="file"]:invalid ~ #remove-return-image {
+	display: none;
 }
 #stamp {
 	@media (max-width: 429px) {

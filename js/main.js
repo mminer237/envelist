@@ -20,6 +20,10 @@ async function printEnvelopes() {
 	).then(printPDF);
 }
 
+document.getElementById("remove-return-image").onclick = () => {
+	addReturnImageButton.value = "";
+};
+
 document.getElementById("print-button").onclick = printEnvelopes;
 
 document.onkeydown = e => {
