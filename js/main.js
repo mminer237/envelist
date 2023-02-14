@@ -235,7 +235,7 @@ async function makePDF(size, returnAddress, addresses) {
 			context.font = Math.round(12 * imagePixelsPerInch / 72) + "pt " + savedFont;
 			context.textBaseline = "top";
 			if (returnAddress.startsWith('data:'))
-				doc.addImage(returnAddress, returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), .1, .18);
+				context.drawImage(createImageBitmap(returnAddress), 	returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), 14, 13);
 			else
 				context.fillText(returnAddress, 14, 13);
 			context.fillText(address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55);
