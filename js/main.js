@@ -214,6 +214,7 @@ function getAddresses() {
  */
 async function makePDF(size, returnAddress, addresses) {
 	let doc;
+	const FONT_SIZE = 12;
 	const pdfFont = pdfFonts.find(f => savedFont === presetFonts[f].fontFamily);
 	if (pdfFont && !addresses.some(x => x.match(/\P{ASCII}/u))) {
 		const pageOptions = {
@@ -222,7 +223,7 @@ async function makePDF(size, returnAddress, addresses) {
 			format: size
 		};
 		doc = new jsPDF(pageOptions);
-		doc.setFontSize(12);
+		doc.setFontSize(FONT_SIZE);
 		doc.setFont(pdfFont);
 		const textOptions = {
 			baseline: 'top'
@@ -246,13 +247,13 @@ async function makePDF(size, returnAddress, addresses) {
 			canvas.width = size[0] * imagePixelsPerInch;
 			canvas.height = size[1] * imagePixelsPerInch;
 			const context = canvas.getContext("2d");
-			context.font = Math.round(12 * imagePixelsPerInch / 72) + "pt " + savedFont;
+			context.font = Math.round(FONT_SIZE * imagePixelsPerInch / 72) + "pt " + savedFont;
 			context.textBaseline = "top";
 			if (returnAddress.startsWith('data:'))
 				context.drawImage(createImageBitmap(returnAddress), 	returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), 14, 13);
 			else
-				context.fillText(returnAddress, 14, 13);
-			context.fillText(address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55);
+				writeMultilineText(context, returnAddress, 14, 13, Math.round((FONT_SIZE + 2) * imagePixelsPerInch / 72) * imagePixelsPerInch);
+			writeMultilineText(context, address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55, Math.round((FONT_SIZE + 2) * imagePixelsPerInch / 72));
 			return canvas.toDataURL("image/png");
 		});
 
@@ -271,6 +272,21 @@ async function makePDF(size, returnAddress, addresses) {
 		}
 	}
 	return doc;
+}
+
+/**
+ * Write multiline text to a canvas context
+ * @param {CanvasRenderingContext2D} context The context to write to
+ * @param {string} text The text to write
+ * @param {number} x The x coordinate of the left side to start writing at
+ * @param {number} y The y coordinate of the top side to start writing at
+ * @param {number} lineHeight The height of each line in pixels
+ */
+function writeMultilineText(context, text, x, y, lineHeight) {
+	const lines = text.split("\n");
+	for (let i = 0; i < lines.length; i++) {
+		context.fillText(lines[i], x, y + i * lineHeight);
+	}
 }
 
 function printPDF(doc) {
