@@ -248,7 +248,7 @@ async function makePDF(size, returnAddress, addresses) {
 			canvas.width = size[0] * imagePixelsPerInch;
 			canvas.height = size[1] * imagePixelsPerInch;
 			const context = canvas.getContext("2d");
-			context.font = Math.round(FONT_SIZE * imagePixelsPerInch / 72) + "pt " + savedFont;
+			context.font = Math.round(FONT_SIZE * imagePixelsPerInch / 72 * 0.78 /* It is unexpectedly big without this random number */) + "pt " + savedFont;
 			context.textBaseline = "top";
 			if (returnAddress.startsWith('data:'))
 				context.drawImage(createImageBitmap(returnAddress), 	returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), 14, 13);
