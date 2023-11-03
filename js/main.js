@@ -220,7 +220,8 @@ async function makePDF(size, returnAddress, addresses) {
 		const pageOptions = {
 			orientation: "landscape",
 			unit: "in",
-			format: size
+			format: size,
+			putOnlyUsedFonts: true
 		};
 		doc = new jsPDF(pageOptions);
 		doc.setFontSize(FONT_SIZE);
@@ -262,6 +263,7 @@ async function makePDF(size, returnAddress, addresses) {
 			orientation: "landscape",
 			unit: "in",
 			format: size,
+			putOnlyUsedFonts: true,
 			userUnit: 300
 		};
 		doc = new jsPDF(pageOptions);
@@ -292,8 +294,7 @@ function writeMultilineText(context, text, x, y, lineHeight) {
 function printPDF(doc) {
 	doc.autoPrint({variant: 'non-conform'});
 	const blobUrl = doc.output('bloburl', {filename: 'envelopes.pdf'});
-	console.log(blobUrl);
-	window.open(doc.output(blobUrl), '_blank');
+	window.open(blobUrl, '_blank');
 }
 
 // @license-end
