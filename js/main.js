@@ -159,6 +159,14 @@ function sizeInputChanged() {
 	presetSelect.value = "custom";
 	updateEnvelopeSize();
 }
+addressesBox.addEventListener("input", (event) => {
+	if (window.chrome && addressesBox.value.match(/\P{ASCII}/u)) {
+		document.getElementById("pdf-resolution-warning").style.display = "block";
+	}
+	else if (document.getElementById("pdf-resolution-warning").style.display === "block") {
+		updateFont(customFontInput.value || fontFamilySelect.value);
+	}
+})
 
 /**
  * Resize the visual envelope
@@ -207,7 +215,7 @@ function getAddresses() {
 async function makePDF(size, returnAddress, addresses) {
 	let doc;
 	const pdfFont = pdfFonts.find(f => savedFont === presetFonts[f].fontFamily);
-	if (pdfFont) {
+	if (pdfFont && !addresses.some(x => x.match(/\P{ASCII}/u))) {
 		const pageOptions = {
 			orientation: "landscape",
 			unit: "in",
