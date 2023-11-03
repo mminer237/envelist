@@ -291,7 +291,9 @@ function writeMultilineText(context, text, x, y, lineHeight) {
 
 function printPDF(doc) {
 	doc.autoPrint({variant: 'non-conform'});
-	doc.output('dataurlnewwindow');
+	const blobUrl = doc.output('bloburl', {filename: 'envelopes.pdf'});
+	console.log(blobUrl);
+	window.open(doc.output(blobUrl), '_blank');
 }
 
 // @license-end
