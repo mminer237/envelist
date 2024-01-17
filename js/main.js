@@ -236,7 +236,7 @@ async function makePDF(size, returnAddress, addresses) {
 		doc.text(addresses[0], size[0] * .42, size[1] * .55);
 		for (let i = 1; i < addresses.length; i++) {
 			doc.addPage(pageOptions.format, pageOptions.orientation);
-			doc.text(returnAddress, .1, .1, textOptions);
+			doc.text(returnAddress, .2, .18, textOptions);
 			doc.text(addresses[i], size[0] * .42, size[1] * .55, textOptions);
 		}
 	}
