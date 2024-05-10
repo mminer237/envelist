@@ -243,20 +243,25 @@ async function makePDF(size, returnAddress, addresses) {
 	else {
 		/* Draw on canvas */
 		const imagePixelsPerInch = window.chrome ? 72 : 300;
-		const images = addresses.map(address => {
+		const images = await Promise.all(addresses.map(async address => {
 			const canvas = document.createElement("canvas");
 			canvas.width = size[0] * imagePixelsPerInch;
 			canvas.height = size[1] * imagePixelsPerInch;
 			const context = canvas.getContext("2d");
 			context.font = Math.round(FONT_SIZE * imagePixelsPerInch / 72 * 0.78 /* It is unexpectedly big without this random number */) + "pt " + savedFont;
 			context.textBaseline = "top";
-			if (returnAddress.startsWith('data:'))
-				context.drawImage(createImageBitmap(returnAddress), 	returnAddress.substring(11, returnAddress.indexOf(";")).toUpperCase(), 14, 13);
+			if (returnAddress.startsWith('data:')) {
+				const image = new Image();
+				image.src = returnAddress;
+				const promise = new Promise(resolve => image.onload = resolve);
+				await promise;
+				context.drawImage(image, 14, 13);
+			}
 			else
 				writeMultilineText(context, returnAddress, 14, 13, Math.round((FONT_SIZE + 2) * imagePixelsPerInch / 72) * imagePixelsPerInch);
 			writeMultilineText(context, address, size[0] * imagePixelsPerInch * .42, size[1] * imagePixelsPerInch * .55, Math.round((FONT_SIZE + 2) * imagePixelsPerInch / 72));
 			return canvas.toDataURL("image/png");
-		});
+		}));
 
 		/* Convert to PDF */
 		const pageOptions = {
