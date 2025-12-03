@@ -96,7 +96,7 @@ function updateFont(font) {
 		document.getElementById("pdf-resolution-warning").style.display = "block";
 	else
 		document.getElementById("pdf-resolution-warning").style.display = "none";
-	
+
 	if (font in presetFonts) {
 		presetFonts[font].loadIfNeeded();
 		font = presetFonts[font].fontFamily;
@@ -202,7 +202,7 @@ async function getReturnImage() {
  * @returns {string[]} The list of recipient addresses
  */
 function getAddresses() {
-	return addressesBox.value.split(/(?:\n\s*\n|(?<=(?<!(?:box|ste|apt|unit|#) ?)\b\w?\d\w ?\d\w\d(?:-\d{4})?)\s*\n)/i).filter(x => x);
+	return addressesBox.value.split(/(?:\n\s*\n|(?<=(?<!(?:box|s(?:ui)?te|ap(?:artmen)?t|building|bldg|fl(?:oor)?|unit|r(?:oo)?m|dep(?:artmen)?t|#) ?)\b\w?\d\w ?\d\w\d(?:-\d{4})?)\s*\n)/i).filter(x => x);
 }
 
 /**
